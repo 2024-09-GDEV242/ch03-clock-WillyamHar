@@ -1,5 +1,8 @@
 
 /**
+ * 
+ * Main branch, do not change
+ * 
  * The ClockDisplay class implements a digital clock display for a
  * European-style 24 hour clock. The clock shows hours and minutes. The 
  * range of the clock is 00:00 (midnight) to 23:59 (one minute before 
@@ -9,8 +12,8 @@
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
  * 
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author William Harvey
+ * @version 2024.09.20
  */
 public class ClockDisplay
 {
