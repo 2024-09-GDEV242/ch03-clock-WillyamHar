@@ -43,7 +43,7 @@ public class ClockDisplay
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
-
+    
     /**
      * This method should get called once every minute - it makes
      * the clock display go one minute forward.
@@ -56,7 +56,15 @@ public class ClockDisplay
         }
         updateDisplay();
     }
-
+    
+    {
+        int ClockHours = hours.getValue();
+            if( ClockHours >= 12)
+            {
+                ClockHours = ClockHours - 12;
+            }
+    }
+    
     /**
      * Set the time of the display to the specified hour and
      * minute.
