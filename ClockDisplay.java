@@ -57,14 +57,6 @@ public class ClockDisplay
         updateDisplay();
     }
     
-    {
-        int ClockHours = hours.getValue();
-            if( ClockHours >= 12)
-            {
-                ClockHours = ClockHours - 12;
-            }
-    }
-    
     /**
      * Set the time of the display to the specified hour and
      * minute.
