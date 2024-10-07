@@ -1,7 +1,7 @@
 
 /**
  * 
- * 24-hour branch
+ * 12-hour internal branch
  * 
  * The ClockDisplay class implements a digital clock display for a
  * European-style 24 hour clock. The clock shows hours and minutes. The 
@@ -39,7 +39,7 @@ public class ClockDisplay
      */
     public ClockDisplay(int hour, int minute)
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
@@ -81,7 +81,14 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
+        if(hours.getValue() == 0)
+        {
+            displayString = 12 + ":" + minutes.getDisplayValue();
+        }
+        else
+        {
+            displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
+        }
     }
 }
