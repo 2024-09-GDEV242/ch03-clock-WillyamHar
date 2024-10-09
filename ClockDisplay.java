@@ -19,8 +19,8 @@ public class ClockDisplay
 {
     private NumberDisplay hours;
     private NumberDisplay minutes;
-    private String displayString;    // simulates the actual display
-    
+    private String displayString; // simulates the actual display
+    private String amorpm;
     /**
      * Constructor for ClockDisplay objects. This constructor 
      * creates a new clock set at 00:00.
@@ -29,6 +29,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
+        amorpm = "am";
         updateDisplay();
     }
 
@@ -37,10 +38,11 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute, String meridian)
     {
         hours = new NumberDisplay(12);
-        minutes = new NumberDisplay(60);
+        minutes = new NumberDisplay(60); 
+        amorpm = meridian;
         setTime(hour, minute);
     }
     
@@ -53,6 +55,14 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
+        }
+        if(amorpm.equals("am"))
+        {
+            amorpm = "pm";
+        }
+        else
+        {
+            amorpm = "am";
         }
         updateDisplay();
     }
@@ -83,12 +93,13 @@ public class ClockDisplay
     {
         if(hours.getValue() == 0)
         {
-            displayString = 12 + ":" + minutes.getDisplayValue();
+            displayString = 12 + ":" + minutes.getDisplayValue() + " " + amorpm;
         }
         else
         {
             displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+                        minutes.getDisplayValue() + " " + amorpm;
         }
     }
 }
+
