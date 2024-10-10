@@ -53,14 +53,19 @@ public class ClockDisplay
     public void timeTick()
     {
         minutes.increment();
-        if(minutes.getValue() == 0) {  // it just rolled over!
+        if(minutes.getValue() == 0) 
+        {  // it just rolled over!
             hours.increment();
         }
-        if(amorpm.equals("am"))
+        if(hours.equals(12) && minutes.equals(0))
+        {
+            hours.equals(99);
+        }
+        if(amorpm.equals("am") && minutes.getValue() == 0 && hours.getValue() == 12)
         {
             amorpm = "pm";
         }
-        else
+        else if(amorpm.equals("pm") && minutes.getValue() == 0 && hours.getValue() == 12)
         {
             amorpm = "am";
         }
