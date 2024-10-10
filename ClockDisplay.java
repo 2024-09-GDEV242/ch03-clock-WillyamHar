@@ -20,7 +20,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
-    
+    private String amorpm;
     /**
      * Constructor for ClockDisplay objects. This constructor 
      * creates a new clock set at 00:00.
@@ -29,6 +29,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
+        amorpm = "am";
         updateDisplay();
     }
 
@@ -53,6 +54,10 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
+        }
+        if(hours.equals (00))
+        {
+            hours = 12;
         }
         updateDisplay();
     }
