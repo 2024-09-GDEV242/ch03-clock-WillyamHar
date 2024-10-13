@@ -56,9 +56,9 @@ public class ClockDisplay
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
         }
-        if(hours.equals (00))
+        if(hours.getValue() == 0)
         {
-            hours.equals(12);
+            hours.equals(5);
         }
         updateDisplay();
     }
@@ -71,7 +71,7 @@ public class ClockDisplay
     {
         hours.setValue(hour);
         minutes.setValue(minute);
-        updateDisplay();
+        updateDisplay();  
     }
 
     /**
@@ -87,6 +87,12 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
+        if(hours.setValue() >= 13)
+        {
+            setValue() % 12;
+        }
+        
+        
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue() + " " + amorpm;
     }
