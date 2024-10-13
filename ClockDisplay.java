@@ -38,7 +38,7 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute, String meridian)
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
